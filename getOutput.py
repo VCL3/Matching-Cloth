@@ -8,12 +8,12 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	outfile = open(outputFile, "w")
 	infile = open(inputFile, "w")
 
-	bottoms = ["trousers", "trouser", "jeans", "pants", "shorts", "sweatpants"]
+	bottoms = ["trousers", "trouser", "jeans", "pants", "shorts", "sweatpants", "jogger", "chino"]
 	num_top = 0
 	num_bottom = 0
 	num_suit = 0
 	i = 20
-	max_num = 30
+	max_num = 50
 	while 1:
 		isTop = True 
 
@@ -66,11 +66,11 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 			for y in range(image.shape[1]):
 				for c in range(image.shape[2]):
 					color = float(image[x][y][c])/255.0
-					if i:
-						print type(image[x][y][c])
-						print int(image[x][y][c])
+					# if i:
+					# 	print type(image[x][y][c])
+					# 	print int(image[x][y][c])
 
-						i -= 1
+					# 	i -= 1
 
 					infile.write("%.4f " % color)
 				
