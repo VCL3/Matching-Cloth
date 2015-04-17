@@ -13,7 +13,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	num_bottom = 0
 	num_suit = 0
 	i = 1
-	max_num = 20
+	max_num = 30
 	while 1:
 		isTop = True 
 
@@ -49,21 +49,22 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 			num_top += 1
 
 		image = cv2.imread(imageFilenameRoot + line[0]+".jpg")
-		# h = 144
-		# w = 108
-		h = 29
-		w = 23
+		h = 144
+		w = 108
+		# h = 29
+		# w = 23
 
 		smallImg = numpy.empty((h,w), 'uint8')
 		image = cv2.resize(image, (w,h), smallImg, 0, 0, cv2.INTER_LANCZOS4)
 		smallImg = smallImg.astype(float)
 		smallGray = numpy.empty((h,w), 'uint8')
-		cv2.cvtColor(image, cv2.COLOR_RGB2GRAY, smallGray)
+		# cv2.cvtColor(image, cv2.COLOR_RGB2GRAY, smallGray)
 		smallImg = numpy.divide(smallGray*1.0, 255.0)
 		for row in smallImg:
 			for col in row:
 				infile.write("%.4f " % col)
-		infile.write("\n")
+				
+		# infile.write("\n")
 
 
 	print "All done", "top:", num_top, "bottoms:", num_bottom, "suits:", num_suit	
@@ -80,4 +81,5 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	outfile.close()
 	infile.close()
 
-getTarget("clothes.dat", "img/lg-", "clothes-input.dat", "clothes-targets.dat")
+# getTarget("inputs/all.dat", "img/lg-", "inputs/tbs-30-144*108-color-input.dat", "inputs/tbs-30-144*108-color-targets.dat")
+getTarget("inputs/all.dat", "img/lg-", "inputs/test-inputs.dat", "inputs/test-targets.dat")
