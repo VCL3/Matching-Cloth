@@ -12,7 +12,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	num_top = 0
 	num_bottom = 0
 	num_suit = 0
-	i = 20
+	i = 1
 	max_num = 30
 	while 1:
 		isTop = True 
@@ -24,7 +24,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 				continue
 			outfile.write("1 0 0\n")
 			isTop = False
-			#print "SUIT", line
+			print "SUIT", line
 
 			num_suit += 1
 
@@ -33,7 +33,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 				if num_bottom >= max_num:
 					continue
 				outfile.write("0 1 0\n")
-				#print "BOTTOM", line
+				print "BOTTOM", line
 				line[1]
 				isTop = False
 
@@ -45,7 +45,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 				continue
 
 			outfile.write("0 0 1\n")
-			#print "TOP", line
+			print "TOP", line
 			num_top += 1
 
 		image = cv2.imread(imageFilenameRoot + line[0]+".jpg")
@@ -61,20 +61,13 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 		smallImg = image
 		# cv2.cvtColor(image, cv2.COLOR_RGB2GRAY, smallGray)
 		#smallImg = numpy.divide(smallGray*1.0, 255.0)
-
-		for x in range(image.shape[0]):
-			for y in range(image.shape[1]):
-				for c in range(image.shape[2]):
-					color = float(image[x][y][c])/255.0
-					if i:
-						print type(image[x][y][c])
-						print int(image[x][y][c])
-
-						i -= 1
-
-					infile.write("%.4f " % color)
+		for row in smallImg:
+			for col in row:
+				for c in col:
+					infile.write("%.4f " % c)
 				
-		infile.write("\n")
+		# infile.write("\n")
+
 
 	print "All done", "top:", num_top, "bottoms:", num_bottom, "suits:", num_suit	
 
