@@ -64,25 +64,23 @@ class SuitRecognizer(BackpropNetwork):
         
 #create the network
 n = SuitRecognizer()
-w = 29
-h = 23 *3
-scale = 10
+w = 144/2
+h = 108/2
+scale = 2
 
 #add 3 layers: input size 29*23, hidden size 3, output size 3
-n.addLayers(w * h, 5, 3)
+n.addLayers(w * h, 3, 3, 3)
 
 #get the input and target data
 rootname = "inputs/"
 # inputs:
 # "clothes29*23-input.dat"
 # "tbs-30-144*108-input.dat"
-# "test-inputs.dat"
-n.loadInputsFromFile(rootname + "test-inputs.dat")
+n.loadInputsFromFile(rootname + "tbs-30-144*108-input.dat")
 # outputs:
 # "top-bottom-suit-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # "tbs-30-144*108-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
-# test-targets.dat
-n.loadTargetsFromFile(rootname + "test-targets.dat")
+n.loadTargetsFromFile(rootname + "tbs-30-144*108-targets.dat")
 
 #set the training parameters
 n.setEpsilon(0.3)

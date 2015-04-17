@@ -65,14 +65,13 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 		for x in range(image.shape[0]):
 			for y in range(image.shape[1]):
 				for c in range(image.shape[2]):
-					color = float(image[x][y][c])/255.0
+					# c = c/255.0
 					if i:
-						print type(image[x][y][c])
-						print int(image[x][y][c])
+						print type(c)
+						print c
 
 						i -= 1
-
-					infile.write("%.4f " % color)
+					infile.write("%.4f " % image[x][y][c])
 				
 		infile.write("\n")
 
