@@ -70,8 +70,8 @@ w = 29
 h = 23 *3
 scale = 10
 
-#add 3 layers: input size 29*23, hidden size 8, output size 4
-n.addLayers(w * h, 8, 4)
+#add 3 layers: input size 29*23, hidden size 3, output size 3
+n.addLayers(w * h, 5, 3)
 
 #get the input and target data
 rootname = "inputs/"
@@ -90,7 +90,7 @@ n.loadTargetsFromFile(rootname + "test-targets.dat")
 n.setEpsilon(0.3)
 n.setMomentum(0.1)
 n.setReportRate(1)
-n.setTolerance(0.4)
+n.setTolerance(0.3)
 
 #create the visualization windows
 n.showActivations('input', shape=(w,h), scale= scale)
