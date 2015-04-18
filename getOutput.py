@@ -8,12 +8,13 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	outfile = open(outputFile, "w")
 	infile = open(inputFile, "w")
 
-	bottoms = ["trousers", "trouser", "jeans", "pants", "shorts", "sweatpants", "jogger", "chino"]
+	bottoms = ["trousers", "trouser", "jeans", "pants", "sweatpants", "jogger", "chino"]
 	num_top = 0
 	num_bottom = 0
 	num_suit = 0
+	num_shorts = 0
 	i = 20
-	max_num = 50
+	max_num = 26
 	while 1:
 		isTop = True 
 
@@ -22,19 +23,25 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 		if "Suit" in line[1]:
 			if num_suit >= max_num:
 				continue
-			outfile.write("1 0 0\n")
+			outfile.write("1 0 0 0\n")
 			isTop = False
 			#print "SUIT", line
 
 			num_suit += 1
 
+		if "shorts" == line[1].lower():
+			if num_shorts >= max_num:
+				continue
+			outfile.write("0 0 1 0\n")
+
+			num_shorts += 1
+
 		for b in bottoms:
 			if b == line[1].lower():
 				if num_bottom >= max_num:
 					continue
-				outfile.write("0 1 0\n")
+				outfile.write("0 0 0 1\n")
 				#print "BOTTOM", line
-				line[1]
 				isTop = False
 
 				num_bottom += 1
@@ -44,7 +51,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 			if num_top >= max_num:
 				continue
 
-			outfile.write("0 0 1\n")
+			outfile.write("0 1 0 0\n")
 			#print "TOP", line
 			num_top += 1
 
@@ -76,7 +83,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 				
 		infile.write("\n")
 
-	print "All done", "top:", num_top, "bottoms:", num_bottom, "suits:", num_suit	
+	print "All done", "top:", num_top, "bottoms:", num_bottom, "suits:", num_suit, "shorts", num_shorts	
 
 		# print smallImg.shape
 

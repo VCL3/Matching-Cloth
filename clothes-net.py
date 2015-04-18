@@ -20,14 +20,16 @@ class SuitRecognizer(BackpropNetwork):
         # for i in output:
         #     if i > self.tolerance:
         #         counter += 1
-        if len(output) != 3:
+        if len(output) != 4:
             return '???'
         if output[0] > (1 - self.tolerance):
             return 'suit'
         elif output[1] > (1 - self.tolerance):
-            return 'bottom'
-        elif output[2] > (1 - self.tolerance):
             return 'top'
+        elif output[2] > (1 - self.tolerance):
+            return 'shorts'
+        elif output[3] > (1 - self.tolerance):
+            return 'pants'
         else:
             return '???'
 
