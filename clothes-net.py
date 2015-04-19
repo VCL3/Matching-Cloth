@@ -20,15 +20,17 @@ class SuitRecognizer(BackpropNetwork):
         # for i in output:
         #     if i > self.tolerance:
         #         counter += 1
-        if len(output) != 4:
+        if len(output) != 5:
             return '???'
         if output[0] > (1 - self.tolerance):
             return 'suit'
         elif output[1] > (1 - self.tolerance):
-            return 'top'
+            return 't-shirts'
         elif output[2] > (1 - self.tolerance):
-            return 'shorts'
+            return 'top'
         elif output[3] > (1 - self.tolerance):
+            return 'shorts'
+        elif output[4] > (1 - self.tolerance):
             return 'pants'
         else:
             return '???'
@@ -66,12 +68,12 @@ class SuitRecognizer(BackpropNetwork):
         
 #create the network
 n = SuitRecognizer()
-w = 29
-h = 23 *3
-scale = 10
+w = 144
+h = 108 *3
+scale = 1
 
 #add 3 layers: input size 29*23, hidden size 8, output size 4
-n.addLayers(w * h, 8, 4)
+n.addLayers(w * h, 8, 5)
 
 #get the input and target data
 rootname = "inputs/"
