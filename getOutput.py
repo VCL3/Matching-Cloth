@@ -16,7 +16,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	num_shorts = 0
 	num_tshirts = 0
 	i = 20
-	max_num = 32
+	max_num = 40
 	verbose = True
 	while 1:
 		isTop = True 
@@ -73,31 +73,36 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 			if verbose:
 				print "TOP", line
 
+		# read in image
+		image_rgb = cv2.imread(imageFilenameRoot + line[0]+".jpg")
 
-		image = cv2.imread(imageFilenameRoot + line[0]+".jpg")
 		# h = 144/2
 		# w = 108/2
-		h = 144
-		w = 108
-		smallImg = numpy.empty((h,w), 'uint8')
-		image = cv2.resize(image, (w,h), smallImg, 0, 0, cv2.INTER_LANCZOS4)
-		smallImg = smallImg.astype(float)
-		smallGray = numpy.empty((h,w), 'uint8')
-		smallImg = image
+		h = 144/2
+		w = 108/2
+
+		# smallImg = numpy.empty((h,w), 'uint8')
+		image_rgb = cv2.resize(image_rgb, (w,h), image_rgb, 0, 0, cv2.INTER_LANCZOS4)
+		edges = cv2.Canny(image_rgb, 100, 200)
+
+		# smallImg = smallImg.astype(float)
+		# smallGray = numpy.empty((h,w), 'uint8')
+		image = edges
 		# cv2.cvtColor(image, cv2.COLOR_RGB2GRAY, smallGray)
 		#smallImg = numpy.divide(smallGray*1.0, 255.0)
 
 		for x in range(image.shape[0]):
 			for y in range(image.shape[1]):
-				for c in range(image.shape[2]):
-					color = float(image[x][y][c])/255.0
+				pixel = float(image[x][y])/255.0
+				# for c in range(image.shape[2]):
+					# color = float(image[x][y][c])/255.0
 					# if i:
 					# 	print type(image[x][y][c])
 					# 	print int(image[x][y][c])
 
 					# 	i -= 1
 
-					infile.write("%.4f " % color)
+				infile.write("%.4f " % pixel)
 				
 		infile.write("\n")
 
