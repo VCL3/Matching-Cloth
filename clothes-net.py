@@ -68,9 +68,9 @@ class SuitRecognizer(BackpropNetwork):
         
 #create the network
 n = SuitRecognizer()
-w = 144
-h = 108 *3
-scale = 1
+w = 144/2
+h = 108/2
+scale = 2
 
 #add 3 layers: input size 29*23, hidden size 8, output size 4
 n.addLayers(w * h, 8, 5)
