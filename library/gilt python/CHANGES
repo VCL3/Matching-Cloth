@@ -1,0 +1,15 @@
+# Change and Release History: gilt-python
+
+Keeping a complete-ish history of releases here.
+
+## Release 0.7.1, 2012-03-02
+
+* public on github and pypi
+
+## Release 0.7.0, 2012-02-26
+
+* first usable version
+* models fairly complete
+* supports sales API but not yet products
+
+
