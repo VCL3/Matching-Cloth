@@ -14,14 +14,16 @@ client = GiltApiClient(api_key = '4bc9ea982749056525a630ff9eb6deda9f737c2a944929
 i = 0
 startIndex = 722
 
-outfile = open("inputs/gilt.dat", "w")
+outfile = open("inputs/gilt2.dat", "w")
+salefile = open("inputs/saleName.dat", "w")
 
 for sale in client.sales.active('men'):
   product_urls = sale.products
   if not product_urls: continue
 
   # print 'First %d products (of %d) of sale "%s"' % (len(product_urls), len(sale.products), sale.name)
-    
+  salefile.write(sale.name)
+  salefile.write("\n")
   for url in product_urls:
     try:
       product = client.products.get(url=url) 
@@ -31,7 +33,7 @@ for sale in client.sales.active('men'):
         if category in item:
           startIndex += 1
           print category 
-          outfile.write(str(startIndex) + " " + category)
+          outfile.write(str(startIndex) + " " + category + " " + product.name)
           outfile.write("\n")
           for image in product.image_urls.image_list("300x400"):
             # print image.url
