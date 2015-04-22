@@ -1,0 +1,119 @@
+{
+  "name": "Canvas Twill Timeless Trench",
+  "product": "https://api.gilt.com/v1/products/93603981/detail.json",
+  "id": 93603981,
+  "brand": "Gryphon",
+  "content": {
+    "description": "Cotton canvas twill blend woven trench coat. Snip.",
+    "material": "67% cotton and 33% nylon shell. 100% acetate lining",
+    "origin": "China"
+  },
+  "url": "http://www.gilt.com/m/public/look/?utm_medium=api&utm_campaign=PublicAPIAlpha&utm_source=salesapi&s_id=4f9f381ffa13e06bf47b8e9994f1c8b87f58df34345d5ae1b213998dd627cb65_0_93603981",
+  "image_urls": {
+    "91x121": [
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227025/91x121.jpg",
+        "width": 91,
+        "height": 121
+      },
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227050/91x121.jpg",
+        "width": 91,
+        "height": 121
+      },
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227040/91x121.jpg",
+        "width": 91,
+        "height": 121
+      }
+    ],
+    "300x400": [
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227025/300x400.jpg",
+        "width": 300,
+        "height": 400
+      },
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227050/300x400.jpg",
+        "width": 300,
+        "height": 400
+      },
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227040/300x400.jpg",
+        "width": 300,
+        "height": 400
+      }
+    ],
+    "420x560": [
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227025/420x560.jpg",
+        "width": 420,
+        "height": 560
+      },
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227050/420x560.jpg",
+        "width": 420,
+        "height": 560
+      },
+      {
+        "url": "http://cdn1.gilt.com/images/share/uploads/0000/0001/3122/131227040/420x560.jpg",
+        "width": 420,
+        "height": 560
+      }
+    ]
+  },
+  "skus": [
+    {
+      "id": 1225400,
+      "inventory_status": "for sale",
+      "msrp_price": "530.00",
+      "sale_price": "99.00",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "black"
+        },
+        {
+          "name": "hue",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "id": 1383500,
+      "inventory_status": "sold out",
+      "msrp_price": "530.00",
+      "sale_price": "99.00",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "black"
+        }
+      ]
+    },
+    {
+      "id": 1383499,
+      "inventory_status": "sold out",
+      "msrp_price": "530.00",
+      "sale_price": "99.00",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "black"
+        }
+      ]
+    },
+    {
+      "id": 1383498,
+      "inventory_status": "sold out",
+      "msrp_price": "530.00",
+      "sale_price": "99.00",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "red"
+        }
+      ]
+    }
+  ]
+}

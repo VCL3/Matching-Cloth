@@ -1,0 +1,28 @@
+Metadata-Version: 1.1
+Name: gilt-python
+Version: 0.7.1
+Summary: Gilt API client
+Home-page: https://github.com/aellerton/gilt-python
+Author: AJEllerton
+Author-email: andrewjellerton+gilt-python@gmail.com
+License: UNKNOWN
+Description:     Python Gilt API
+            ---------------
+        
+            DESCRIPTION
+            The Gilt API allows developers access to sale and product information from gilt.com.
+        
+            LICENSE 
+            The Python Gilt API distributed under the Apache Softare License.
+            
+Keywords: gilt
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
