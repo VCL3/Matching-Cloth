@@ -6,9 +6,10 @@ bottoms = ["trousers", "trouser", "jeans", "pants", "sweatpants", "jogger", "chi
 # Top
 shirts = ["shirt", "sportshirt"]
 tops = ["sweater", "sweatshirt", "hoodie"]
-jacket = ["jacket", "blazor", "sportcoat", "coat"]
+jacket = ["jacket"]
+blazers = ["blazer", "sportcoat", "coat"]
 vests = ["vest"]
 tshirts = ["t-shirt", "poloshirt"] 
 
-article_text = ["suits", "shorts", "bottoms", "shirts", "tops", "jacket","vests", "tshirts"]
-article_list = [suits, shorts, bottoms, shirts, tops, jacket, vests, tshirts]
+article_text = ["suits", "shorts", "bottoms", "shirts", "tops", "jacket", "blazers", "vests", "tshirts"]
+article_list = [suits, shorts, bottoms, shirts, tops, jacket, blazers, vests, tshirts]
