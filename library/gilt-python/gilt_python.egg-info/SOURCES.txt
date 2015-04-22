@@ -1,0 +1,11 @@
+setup.py
+gilt/__init__.py
+gilt/util.py
+gilt/rest/__init__.py
+gilt/rest/resources.py
+gilt/rest/setup.py
+gilt_python.egg-info/PKG-INFO
+gilt_python.egg-info/SOURCES.txt
+gilt_python.egg-info/dependency_links.txt
+gilt_python.egg-info/requires.txt
+gilt_python.egg-info/top_level.txt
