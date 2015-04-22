@@ -26,7 +26,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	diversity = len(article_text)
 	num_list = [0] * diversity
 
-	max_num = 200
+	max_num = 70
 	verbose = False
 
 	while 1:
@@ -37,6 +37,10 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 		if len(line) == 0: break
 
 		for index in range(diversity):
+			if index in [3, 4, 5]:
+				max_num = 150
+			else:
+				max_num = 100
 			if line[1].lower() in article_list[index]:
 				if num_list[index] <= max_num:
 					output = "0 " * index + "1 " + "0 " * (diversity-index-1)
@@ -88,7 +92,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	infile.close()
 
 # getTarget("inputs/all.dat", "img/lg-", "inputs/tbs-30-144*108-color-input.dat", "inputs/tbs-30-144*108-color-targets.dat")
-getTarget("inputs/all.dat", "img/lg-", "inputs/train-inputs.dat", "inputs/train-targets.dat")
+getTarget("inputs/all.dat", "img/lg-", "inputs/trainS-inputs.dat", "inputs/trainS-targets.dat")
 # getTarget("inputs/all.dat", "img/lg-", "inputs/test-inputs.dat", "inputs/test-targets.dat")
 
 
