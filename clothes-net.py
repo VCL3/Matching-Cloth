@@ -2,6 +2,7 @@
 # Suit recognition
 
 from newConx import *
+from defClothes import *
 
 class SuitRecognizer(BackpropNetwork):
     """
@@ -20,24 +21,27 @@ class SuitRecognizer(BackpropNetwork):
         # for i in output:
         #     if i > self.tolerance:
         #         counter += 1
-        if len(output) != 7:
+        if len(output) != len(article_text):
             return '???'
-        if output[0] > (1 - self.tolerance):
-            return 'suits'
-        elif output[1] > (1 - self.tolerance):
-            return 'shorts'
-        elif output[2] > (1 - self.tolerance):
-            return 'bottoms'
-        elif output[3] > (1 - self.tolerance):
-            return 'shirts'
-        elif output[4] > (1 - self.tolerance):
-            return 'tops'
-        elif output[5] > (1 - self.tolerance):
-            return 'vests' 
-        elif output[6] > (1 - self.tolerance):
-            return 'tshirts' 
-        else:
-            return '???'
+        for i in range(len(article_text)):
+            if output[i] > (1 - self.tolerance):
+                return article_text[i]
+        # if output[0] > (1 - self.tolerance):
+        #     return 'suits'
+        # elif output[1] > (1 - self.tolerance):
+        #     return 'shorts'
+        # elif output[2] > (1 - self.tolerance):
+        #     return 'bottoms'
+        # elif output[3] > (1 - self.tolerance):
+        #     return 'shirts'
+        # elif output[4] > (1 - self.tolerance):
+        #     return 'tops'
+        # elif output[5] > (1 - self.tolerance):
+        #     return 'vests' 
+        # elif output[6] > (1 - self.tolerance):
+        #     return 'tshirts' 
+        # else:
+        return '???'
 
     def evaluate(self):
         """
@@ -72,12 +76,13 @@ class SuitRecognizer(BackpropNetwork):
         
 #create the network
 n = SuitRecognizer()
-w = 144/4
-h = 108/4
 scale = 4
 
-#add 3 layers: input size 29*23, hidden size 8, output size 7
-n.addLayers(w * h, 8, 7)
+w = 144/scale
+h = 108/scale * 4
+
+#add 3 layers: input size w*h, hidden size 8, output size 8
+n.addLayers(w * h, 8, len(article_text))
 
 #get the input and target data
 rootname = "inputs/"
@@ -85,18 +90,18 @@ rootname = "inputs/"
 # "clothes29*23-input.dat"
 # "tbs-30-144*108-input.dat"
 # "test-inputs.dat"
-n.loadInputsFromFile(rootname + "test-inputs.dat")
+n.loadInputsFromFile("inputs/trainS-inputs.dat")
 # outputs:
 # "top-bottom-suit-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # "tbs-30-144*108-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # test-targets.dat
-n.loadTargetsFromFile(rootname + "test-targets.dat")
+n.loadTargetsFromFile("inputs/trainS-targets.dat")
 
 #set the training parameters
 n.setEpsilon(0.3)
 n.setMomentum(0.1)
 n.setReportRate(1)
-n.setTolerance(0.4)
+n.setTolerance(0.3)
 
 #create the visualization windows
 n.showActivations('input', shape=(w,h), scale= scale)
@@ -105,7 +110,7 @@ n.showActivations('output', scale=100)
 n.showWeights('hidden', shape=(w,h), scale= scale)
 
 # use 80% of dataset for training, 20% for testing
-n.splitData(80)
+n.splitData(90)
 
 print "Clothes recognition network is set up"
 
