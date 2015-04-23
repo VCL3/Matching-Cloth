@@ -23,33 +23,24 @@ def createMask(image, color, threshVal, maxVal, threshType):
 		return mask, bmask, thresh
 
 
+
+
+
 imageFilenameRoot = "img/lg-"
 win = 'Project 2'
 cv2.namedWindow(win)
 
-for i in range(1000,1001):
+for i in range(1000,1060):
 	image_rgb = cv2.imread(imageFilenameRoot + str(i)+".jpg")
 	h = image_rgb.shape[0]
 	w = image_rgb.shape[1]
-	Z = image_rgb.reshape((-1,3))
-	Z = numpy.float32(Z)
-	criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-	K = 8
-	ret,label,center=cv2.kmeans(Z,K,None,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
 
-	# Now convert back into uint8, and make original image
-	center = numpy.uint8(center)
-	res = center[label.flatten()]
-	res2 = res.reshape((image_rgb.shape))
 
-	cv2.imshow('res2',res2)
-	cv2.waitKey(0)
 
 	img_large = numpy.empty((h + 30, w + 30, 3), 'uint8')
 	img_large[:] = (255, 255, 255)
 	img_large[15:15+h,15:15+w]=image_rgb
-	# cv2.imshow('Project 2', img_large)
-	# while cv2.waitKey(15) < 0: pass
+
 	h = h + 30
 	w = w + 30
 	image_rgb = img_large.copy()
@@ -57,13 +48,16 @@ for i in range(1000,1001):
 	cv2.cvtColor(image_rgb, cv2.COLOR_RGB2GRAY, display_gray)
 
 	th2 = cv2.adaptiveThreshold(display_gray,255,cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY,11,2)
-	# cv2.imshow('Project 2', th2)
-	# while cv2.waitKey(15) < 0: pass
+	cv2.imshow('Project 2', th2)
+	while cv2.waitKey(15) < 0: pass
+	cv2.imshow('Project 2', img_large)
+	while cv2.waitKey(15) < 0: pass
 	# cv2.imwrite('pattern' + str(i) + '.png', th2[0:256,0:256])
 
 
-	kernel = numpy.ones((7,7), numpy.uint8)
-	th2 = cv2.erode(th2, kernel, iterations = 1)
+	# kernel = numpy.ones((1,1), numpy.uint8)
+	# th2 = cv2.dilate(th2, kernel, iterations = 1)
+	# th2 = cv2.erode(th2, kernel, iterations = 1)
 
 	# cv2.imshow('Project 2', th2)
 	# while cv2.waitKey(15) < 0: pass
