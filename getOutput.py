@@ -2,7 +2,6 @@ import cv2
 import numpy
 from defClothes import *
 
-
 def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 
 	target = open(targetFile, "r")
