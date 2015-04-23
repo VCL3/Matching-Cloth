@@ -9,22 +9,22 @@ client = GiltApiClient(api_key = '4bc9ea982749056525a630ff9eb6deda9f737c2a944929
 
 # Get Active Sales info, go to men store, need to check what sales there are
 i = 0
-startIndex = 1238
+startIndex = 1540
 
 readsales = open("inputs/saleName.dat", "r")
 downloaded_sales = []
-while 1:
-  # ignore = False
-  # isTop = True 
+# while 1:
+#   # ignore = False
+#   # isTop = True 
 
-  line = readsales.readline()
-  if len(line) == 0: break
+#   line = readsales.readline()
+#   if len(line) == 0: break
 
 
-  downloaded_sales.append(line[:-1])
+#   downloaded_sales.append(line[:-1])
 
-readsales.close()
-print downloaded_sales
+# readsales.close()
+# print downloaded_sales
 outfile = open("inputs/gilt2.dat", "w")
 salefile = open("inputs/saleName2.dat", "w")
 
