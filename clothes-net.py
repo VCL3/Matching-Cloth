@@ -101,7 +101,7 @@ n.loadTargetsFromFile("inputs/trainS-targets.dat")
 n.setEpsilon(0.3)
 n.setMomentum(0.1)
 n.setReportRate(1)
-n.setTolerance(0.3)
+n.setTolerance(0.2)
 
 #create the visualization windows
 n.showActivations('input', shape=(w,h), scale= scale)
@@ -110,7 +110,7 @@ n.showActivations('output', scale=100)
 n.showWeights('hidden', shape=(w,h), scale= scale)
 
 # use 80% of dataset for training, 20% for testing
-n.splitData(90)
+n.splitData(80)
 
 print "Clothes recognition network is set up"
 

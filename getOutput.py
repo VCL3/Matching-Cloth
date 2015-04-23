@@ -34,10 +34,13 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 
 		line = target.readline().split()
 		if len(line) == 0: break
+		
+		# if line[1].lower() == "coat":
+		# 	print line[0]
 
 		for index in range(diversity):
 			if index in [3, 4, 5]:
-				max_num = 150
+				max_num = 100
 			else:
 				max_num = 100
 			if line[1].lower() in article_list[index]:
