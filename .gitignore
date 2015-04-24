@@ -1,2 +1,4 @@
 .nfs*
 img/*
+inputs/test*
+inputs/train*
