@@ -2,3 +2,4 @@
 img/*
 inputs/train-test/*
 *.zip
+.pyc
