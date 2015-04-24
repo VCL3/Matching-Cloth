@@ -212,7 +212,7 @@ class FourierDemo:
             load('zebra-crop-bw.png'),
             load('pattern1008.png'),
             load('pattern1028.png'),
-            load('pattern1004.png'),
+            load('pattern1004.png')
 
         ]
             
