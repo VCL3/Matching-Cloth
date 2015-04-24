@@ -1,3 +1,4 @@
 .nfs*
 img/*
 inputs/train-test/*
+*.zip
