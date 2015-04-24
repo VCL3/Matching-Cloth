@@ -24,6 +24,7 @@ while 1:
   downloaded_sales.append(line[:-1])
 
 readsales.close()
+
 # print downloaded_sales
 outfile = open("inputs/gilt2.dat", "w")
 salefile = open("inputs/saleName2.dat", "w")
@@ -34,6 +35,7 @@ for sale in client.sales.active('men'):
 
   if sale.name in downloaded_sales:
     # print "pass"
+
     continue
   else:
     print 'First %d products (of %d) of sale "%s"' % (len(product_urls), len(sale.products), sale.name)
@@ -43,6 +45,7 @@ for sale in client.sales.active('men'):
       salefile.write("\n")
     except:
       continue
+
     for url in product_urls:
       try:
         product = client.products.get(url=url) 
@@ -53,6 +56,7 @@ for sale in client.sales.active('men'):
             startIndex += 1
             print category 
             outfile.write(str(startIndex) + " " + category + " " + product.name + "," + sale.name)
+
             outfile.write("\n")
             for image in product.image_urls.image_list("300x400"):
               # print image.url

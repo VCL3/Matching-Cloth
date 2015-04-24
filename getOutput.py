@@ -29,6 +29,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 	noise_list = []
 
 	max_num = 1000
+
 	verbose = False
 
 	while 1:
@@ -45,6 +46,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 		# ignore = False
 		# isTop = True 
 
+
 		line = target.readline().split()
 		if len(line) == 0: break
 		
@@ -58,6 +60,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 				max_num = 230
 			else:
 				max_num = 200
+
 			if line[1].lower() in article_list[index]:
 				if num_list[index] <= max_num:
 					output = "0 " * index + "1 " + "0 " * (diversity-index-1)
@@ -111,6 +114,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 
 # getTarget("inputs/all.dat", "img/lg-", "inputs/tbs-30-144*108-color-input.dat", "inputs/tbs-30-144*108-color-targets.dat")
 getTarget("inputs/all.dat", "img/lg-", "inputs/trainClean-inputs.dat", "inputs/trainClean-targets.dat", "inputs/noise.dat")
+
 # getTarget("inputs/all.dat", "img/lg-", "inputs/test-inputs.dat", "inputs/test-targets.dat")
 
 
