@@ -82,7 +82,7 @@ w = 144/scale
 h = 108/scale * 4
 
 #add 3 layers: input size w*h, hidden size 8, output size 8
-n.addLayers(w * h, 8, len(article_text))
+n.addLayers(w * h, len(article_text), len(article_text))
 
 #get the input and target data
 rootname = "inputs/"
@@ -90,12 +90,12 @@ rootname = "inputs/"
 # "clothes29*23-input.dat"
 # "tbs-30-144*108-input.dat"
 # "test-inputs.dat"
-n.loadInputsFromFile("inputs/trainS-inputs.dat")
+n.loadInputsFromFile("inputs/trainClean-inputs.dat")
 # outputs:
 # "top-bottom-suit-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # "tbs-30-144*108-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # test-targets.dat
-n.loadTargetsFromFile("inputs/trainS-targets.dat")
+n.loadTargetsFromFile("inputs/trainClean-targets.dat")
 
 #set the training parameters
 n.setEpsilon(0.3)

@@ -111,3 +111,18 @@ for i in range(1000,1060):
 
 # get mean color in each contour
 
+
+# get 10% of the pixels of pictures in each category
+
+# do kmeans
+
+# evaluate the colors and make a histogram for each picture
+
+# do p-means to find the mean color scheme
+
+
+
+
+
+
+
