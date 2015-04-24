@@ -2,11 +2,12 @@ import cv2
 import numpy
 from defClothes import *
 
-def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
+def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 
 	target = open(targetFile, "r")
 	outfile = open(outputFile, "w")
 	infile = open(inputFile, "w")
+	noise = open(noiseFile, "r")
 
 	# # Suit 1000000
 	# suits = ["suit"]
@@ -22,11 +23,23 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	# article_text = ["suits", "shorts", "bottoms", "shirts", "tops", "vests", "tshirts"]
 	# article_list = [suits, shorts, bottoms, shirts, tops, vests, tshirts]
 
+
 	diversity = len(article_text)
 	num_list = [0] * diversity
+	noise_list = []
 
-	max_num = 70
+	max_num = 1000
 	verbose = False
+
+	while 1:
+		# ignore = False
+		# isTop = True 
+
+		line = noise.readline().split()
+		if len(line) == 0: break
+		noise_list.append(line[0])
+
+
 
 	while 1:
 		# ignore = False
@@ -37,12 +50,14 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 		
 		# if line[1].lower() == "coat":
 		# 	print line[0]
-
+		if line[0] in noise_list:
+			print "noise"
+			continue
 		for index in range(diversity):
 			if index in [3, 4, 5]:
-				max_num = 100
+				max_num = 230
 			else:
-				max_num = 100
+				max_num = 200
 			if line[1].lower() in article_list[index]:
 				if num_list[index] <= max_num:
 					output = "0 " * index + "1 " + "0 " * (diversity-index-1)
@@ -92,9 +107,10 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile):
 	target.close()
 	outfile.close()
 	infile.close()
+	noise.close()
 
 # getTarget("inputs/all.dat", "img/lg-", "inputs/tbs-30-144*108-color-input.dat", "inputs/tbs-30-144*108-color-targets.dat")
-getTarget("inputs/all.dat", "img/lg-", "inputs/trainS-inputs.dat", "inputs/trainS-targets.dat")
+getTarget("inputs/all.dat", "img/lg-", "inputs/trainClean-inputs.dat", "inputs/trainClean-targets.dat", "inputs/noise.dat")
 # getTarget("inputs/all.dat", "img/lg-", "inputs/test-inputs.dat", "inputs/test-targets.dat")
 
 
