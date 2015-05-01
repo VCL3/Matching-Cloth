@@ -112,8 +112,8 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 	noise.close()
 
 # getTarget("inputs/all.dat", "img/lg-", "inputs/tbs-30-144*108-color-input.dat", "inputs/tbs-30-144*108-color-targets.dat")
-#getTarget("inputs/all.dat", "img/lg-", "inputs/train-test/train0426-inputs.dat", "inputs/train-test/train0426-targets.dat", "inputs/noise.dat")
+getTarget("inputs/all.dat", "img/lg-", "inputs/train-test/train0426-inputs.dat", "inputs/train-test/train0426-targets.dat", "inputs/noise.dat")
 
-getTarget("inputs/all.dat", "img/lg-", "inputs/trainClean-inputs.dat", "inputs/trainClean-targets.dat", "inputs/noise.dat")
+# getTarget("inputs/all.dat", "img/lg-", "inputs/trainClean-inputs.dat", "inputs/trainClean-targets.dat")
 
 
