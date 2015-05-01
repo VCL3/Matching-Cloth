@@ -66,7 +66,7 @@ class ClothesAdvisor:
 		category = self.getClothesCategory(imageAddress)
 		print category
 
-		# colorScheme = self.getColorDistribution()
+
 
 
 	def getClothesCategory(self, imageAddress, inputFile = "inputs/tem.dat"):

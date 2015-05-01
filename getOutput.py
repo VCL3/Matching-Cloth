@@ -28,7 +28,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 	num_list = [0] * diversity
 	noise_list = []
 
-	max_num = 210
+
 
 	verbose = False
 
@@ -50,6 +50,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 		line = target.readline().split()
 		if len(line) == 0: break
 		
+
 		if line[0] in noise_list:
 			print "noise"
 			continue
@@ -67,8 +68,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 					num_list[index] = num_list[index] + 1
 
 					image_rgb = cv2.imread(imageFilenameRoot + line[0]+".jpg")
-					h = 100
-					w = 75
+
 
 					image_rgb = cv2.resize(image_rgb, (w,h), image_rgb, 0, 0, cv2.INTER_LANCZOS4)
 					edges = cv2.Canny(image_rgb, 100, 200)
@@ -111,8 +111,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 	infile.close()
 	noise.close()
 
-# getTarget("inputs/all.dat", "img/lg-", "inputs/tbs-30-144*108-color-input.dat", "inputs/tbs-30-144*108-color-targets.dat")
-#getTarget("inputs/all.dat", "img/lg-", "inputs/train-test/train0426-inputs.dat", "inputs/train-test/train0426-targets.dat", "inputs/noise.dat")
+
 
 getTarget("inputs/all.dat", "img/lg-", "inputs/trainClean-inputs.dat", "inputs/trainClean-targets.dat", "inputs/noise.dat")
 
