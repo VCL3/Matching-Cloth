@@ -9,7 +9,7 @@ client = GiltApiClient(api_key = '4bc9ea982749056525a630ff9eb6deda9f737c2a944929
 
 # Get Active Sales info, go to men store, need to check what sales there are
 i = 0
-startIndex = 3091
+startIndex = 5071
 
 readsales = open("inputs/saleName.dat", "r")
 downloaded_sales = []
@@ -31,7 +31,8 @@ salefile = open("inputs/saleName2.dat", "w")
 
 for sale in client.sales.active('men'):
   product_urls = sale.products
-  if not product_urls: continue
+  if not product_urls: 
+    continue
 
   if sale.name in downloaded_sales:
     # print "pass"
