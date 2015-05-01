@@ -99,17 +99,26 @@ rootname = "inputs/"
 # "clothes29*23-input.dat"
 # "tbs-30-144*108-input.dat"
 # "test-inputs.dat"
+<<<<<<< HEAD
 
 n.loadInputsFromFile("inputs/train-test/test0430-inputs.dat")
 
 
+=======
+n.loadInputsFromFile("inputs/train-test/test0430-inputs.dat")
+
+>>>>>>> 7d3645461a59f5fea666b832114c24b01c9a010a
 # outputs:
 # "top-bottom-suit-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # "tbs-30-144*108-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # test-targets.dat
+<<<<<<< HEAD
 
 n.loadTargetsFromFile("inputs/train-test/test0430-targets.dat")
 
+=======
+n.loadTargetsFromFile("inputs/train-test/test0430-targets.dat")
+>>>>>>> 7d3645461a59f5fea666b832114c24b01c9a010a
 
 #set the training parameters
 n.setEpsilon(0.3)
@@ -124,7 +133,7 @@ n.showActivations('output', scale=100)
 n.showWeights('hidden', shape=(w,h), scale= scale)
 
 # use 80% of dataset for training, 20% for testing
-n.splitData(80)
+n.splitData(100)
 
 print "Clothes recognition network is set up"
 
