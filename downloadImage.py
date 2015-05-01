@@ -9,7 +9,7 @@ client = GiltApiClient(api_key = '4bc9ea982749056525a630ff9eb6deda9f737c2a944929
 
 # Get Active Sales info, go to men store, need to check what sales there are
 i = 0
-startIndex = 2786
+startIndex = 3091
 
 readsales = open("inputs/saleName.dat", "r")
 downloaded_sales = []
