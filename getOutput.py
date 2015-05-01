@@ -50,8 +50,8 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 		line = target.readline().split()
 		if len(line) == 0: break
 		
-		# if line[1].lower() == "coat":
-		# 	print line[0]
+		if line[1].lower() == "jacket":
+			print line[0]
 		if line[0] in noise_list:
 			print "noise"
 			continue
