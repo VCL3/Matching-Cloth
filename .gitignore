@@ -2,6 +2,6 @@
 img/*
 inputs/train-test/*
 *.zip
-.pyc
+*.pyc
 ignore/*
 weights/*
