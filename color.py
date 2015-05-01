@@ -23,6 +23,7 @@ class colorSchemeCategorizer:
 		self.data = dict()
 		for text in self.article_text:
 			self.data[text] = {"color": [], "hist": []}
+		print "initialized data:", self.data
 
 	def getNoiseList(self, noiseFile):
 		# noiseFile stores all the index of noise self.data 
@@ -49,10 +50,11 @@ class colorSchemeCategorizer:
 		diversity = len(article_text)
 		# num_list = [0] * diversity
 
-		image_index = []
 
 
 		for article_index in range(diversity):
+			image_index = []
+
 			num_clothes = 0
 			category_text = article_text[article_index]
 
@@ -61,7 +63,7 @@ class colorSchemeCategorizer:
 			allpixel = numpy.empty((1,1,1), 'uint8')	# all pixel is a n * 3 matrix of all n pixels in images
 
 			# loop through images 
-			for i in range(200):	
+			while 1:	
 				line = target.readline().split()
 				if len(line) == 0: break
 				
@@ -78,8 +80,8 @@ class colorSchemeCategorizer:
 					except:
 						continue
 					num_clothes += 1
-					image_index.append((line[0],line[1]))
-					print imageFilenameRoot + line[0]+".jpg"
+					image_index.append((line[0],category_text))
+					print imageFilenameRoot + line[0]+".jpg", category_text
 
 
 					# construct a wh * 3 matrix of all pixels in the image
@@ -128,7 +130,8 @@ class colorSchemeCategorizer:
 				P = P/2
 			histRet,histLabel,histCenterList=cv2.kmeans(allHist,P,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
 
-
+			print category_text
+			print self.data
 			for histCenter in histCenterList:
 				self.data[category_text]["hist"].append({"center": histCenter.tolist(), "nodes": [], "maxDistance": 0})
 			for i in range(num_clothes):
@@ -140,7 +143,7 @@ class colorSchemeCategorizer:
 
 				self.data[category_text]["hist"][center_index]["nodes"].append({"imgIndex": image_index[i][0], "category": image_index[i][1], "distance": dist, "distribution": hist_i})
 				# print dist
-
+			print self.data
 	def getMaxDistance(self):
 		for k, v in self.data.iteritems():
 			hist_list = self.data[k]["hist"]
