@@ -29,7 +29,7 @@ def getTarget(targetFile, imageFilenameRoot, inputFile, outputFile, noiseFile):
 	noise_list = []
 
 
-	max_num = 10000
+	max_num = 210
 
 	verbose = False
 

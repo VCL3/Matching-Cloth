@@ -124,7 +124,7 @@ n.showActivations('output', scale=100)
 n.showWeights('hidden', shape=(w,h), scale= scale)
 
 # use 80% of dataset for training, 20% for testing
-n.splitData(100)
+n.splitData(80)
 
 print "Clothes recognition network is set up"
 
