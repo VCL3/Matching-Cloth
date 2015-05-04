@@ -76,22 +76,9 @@ class SuitRecognizer(BackpropNetwork):
         
 #create the network
 n = SuitRecognizer()
-scale = 1
-
-w = 80/scale
-h = 60/scale * 4
-
-#add 3 layers: input size w*h, hidden size 8, output size 8
-# n.addLayer('input', w * h)
-# n.addLayer('middle1', len(article_text)*2)
-# n.connect('input', 'middle1')
-# n.addLayer('middle2', len(article_text)*1)
-# n.connect('middle1', 'middle2')
-# n.addLayer('output', len(article_text))
-# n.connect('middle2', 'output')
 
 
-n.addLayers(w * h, len(article_text) *2, len(article_text))
+n.addLayers(w * h * 4, len(article_text) *2, len(article_text))
 
 #get the input and target data
 rootname = "inputs/"
@@ -99,17 +86,13 @@ rootname = "inputs/"
 # "clothes29*23-input.dat"
 # "tbs-30-144*108-input.dat"
 # "test-inputs.dat"
-
-n.loadInputsFromFile("inputs/train-test/test0430-inputs.dat")
-
+n.loadInputsFromFile("inputs/train-test/train0426-inputs.dat")
 
 # outputs:
 # "top-bottom-suit-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # "tbs-30-144*108-targets.dat" suit: 1 0 0 bottom: 0 1 0 top: 0 0 1
 # test-targets.dat
-
-n.loadTargetsFromFile("inputs/train-test/test0430-targets.dat")
-
+n.loadTargetsFromFile("inputs/train-test/train0426-targets.dat")
 
 #set the training parameters
 n.setEpsilon(0.3)
