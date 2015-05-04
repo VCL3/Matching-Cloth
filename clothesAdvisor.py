@@ -177,7 +177,7 @@ class ClothesAdvisor:
 
 
 
-	def getClothesCategory(self, imageAddress, inputFile = "input/tem.dat"):
+	def getClothesCategory(self, imageAddress, inputFile = "inputs/tem.dat"):
 		result = self.getInput(imageAddress, inputFile)
 		if result:
 			self.ANN.loadInputsFromFile(inputFile)

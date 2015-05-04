@@ -1,3 +1,7 @@
+"""
+Use kmeans clustering to classify the color schemes of images in each category and produce a json file called myData.json that stores the clustering information
+"""
+
 import cv2
 import numpy
 import json
@@ -8,7 +12,7 @@ from math import *
 
 
 class colorSchemeCategorizer:
-	def __init__(self, article_text, article_list, noiseFile = "noise.dat", verbose=0):
+	def __init__(self, article_text, article_list, noiseFile = "inputs/noise.dat", verbose=0):
 		self.data  = {}
 		self.noise_list = []
 		self.article_text = article_text
